@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char b[23],a[23];
+    printf("Enter a string:");
+    scanf("%s",&a);
+    int i=0,k,c,m,l=0;
+    k=strlen(a);
+    printf("Length of a string is:%d\n",k);
+    for(;i<k;i++){
+        c=0;
+        b[i]=a[i];
+        b[i+1]='\0';
+        m=0;
+        while(b[m]!=0){
+            if(a[i]==b[m]){
+                c++;
+            }
+            m++;
+        }
+        if(c==1){
+            l++;
+        }    
+    }
+    printf("Word frequency is:%d\n",l);
+    char *p,*q;
+    l=0;
+    for(i=0;i<k;i++){
+        p=&a[i];
+        q=&a[0];
+        c=0;
+        while(*q!='\0'){
+            if(*p==*q){
+                c++;
+            }
+            q++;
+        }
+        if(c>1){
+            printf("First repeated character is:%c\n",*p);
+            break;
+        }
+        l++;
+        if(l==k){
+            printf("No repeated character found in the string.\n");
+        }
+    }
+    l=0;
+    for(i=0;i<k;i++){
+        p=&a[i];
+        q=&a[0];
+        c=0;
+        while(*q!='\0'){
+            if(*p==*q){
+                c++;
+            }
+            q++;
+        }
+        if(c==1){
+            printf("First non-repeated character is:%c\n",*p);
+            break;
+        }
+        l++;
+        if(l==k){
+            printf("No non-repeated character found in string.\n");
+        }
+    }
+}
